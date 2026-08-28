@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-cyber-dark text-slate-800 antialiased overflow-x-hidden;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* Custom glow effects adjusted for light theme */
+.glow-blue {
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.08);
+}
+
+.glow-purple {
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.08);
+}
+
+.glow-emerald {
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.08);
+}
+
+.glow-rose {
+  box-shadow: 0 4px 20px rgba(239, 68, 68, 0.08);
+}
+
+/* Custom scrollbar styling (light-themed) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full hover:bg-slate-400;
+}
+
+/* Light-themed radar grid background */
+.cyber-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(203, 213, 225, 0.4) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(203, 213, 225, 0.4) 1px, transparent 1px);
+}
+
+/* Pulse animation keyframes */
+@keyframes scanning {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.scanner-line {
+  animation: scanning 3s linear infinite;
+}
+
+/* Custom React Flow Node Styling (Light theme) */
+.react-flow__node {
+  @apply rounded-xl border border-slate-200 bg-white text-slate-800 p-4 transition-all duration-300 font-sans shadow-md !important;
+}
+
+.react-flow__node.selected {
+  @apply border-cyber-purple ring-2 ring-cyber-purple/20 shadow-cyber-purple/10 !important;
+}
+
+.react-flow__edge-path {
+  stroke: #cbd5e1 !important;
+  stroke-width: 2px !important;
+  transition: stroke 0.3s, stroke-width 0.3s;
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke: #7c3aed !important;
+  stroke-width: 3px !important;
+}
+
+.react-flow__controls-button {
+  @apply bg-white border-slate-200 text-slate-600 hover:bg-slate-50 !important;
+}
+
+.react-flow__attribution {
+  @apply hidden !important;
+}
