@@ -8,14 +8,17 @@ export default {
     extend: {
       colors: {
         cyber: {
-          dark: '#f8fafc',  // clean light background (slate-50)
-          card: '#ffffff',  // pure white card backgrounds
-          border: '#e2e8f0', // light border (slate-200)
-          text: '#475569',  // dark slate text (slate-600)
-          glow: '#2563eb',  // vibrant corporate blue (blue-600)
-          purple: '#7c3aed', // rich violet (violet-600)
+          dark: '#030712',  // deep rich black (slate-950)
+          card: '#0b0f19',  // sleek dark card surface
+          cardHover: '#111827',
+          border: '#1e293b', // subtle dark slate border
+          borderGlow: '#334155',
+          text: '#94a3b8',  // clear slate text
+          glow: '#3b82f6',  // electric blue
+          cyan: '#06b6d4',  // glowing cyan
+          purple: '#8b5cf6', // luminous purple
           emerald: '#10b981', // emerald success
-          rose: '#ef4444',    // rose danger
+          rose: '#f43f5e',    // rose danger
           amber: '#f59e0b',   // amber warning
         }
       },

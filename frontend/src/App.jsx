@@ -200,23 +200,25 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-cyber-dark text-slate-800 flex flex-col justify-between">
+    <div className="min-h-screen bg-cyber-dark text-slate-100 flex flex-col justify-between selection:bg-cyan-500/30 selection:text-cyan-200">
       
       {/* Header / Navbar */}
-      <header className="border-b border-slate-200 bg-white/95 backdrop-blur-md sticky top-0 z-40 print:hidden shadow-sm">
+      <header className="border-b border-cyber-border bg-slate-950/80 backdrop-blur-md sticky top-0 z-40 print:hidden shadow-lg shadow-black/40">
         <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-2 cursor-pointer" onClick={() => setView('landing')}>
-            <Shield className="w-6 h-6 text-cyber-glow" />
-            <span className="font-extrabold text-lg tracking-wider text-slate-900 uppercase">
-              NewsGuard <span className="text-cyber-glow">AI</span>
+          <div className="flex items-center gap-2.5 cursor-pointer group" onClick={() => setView('landing')}>
+            <div className="p-1.5 rounded-lg bg-blue-500/10 border border-blue-500/20 group-hover:border-blue-500/40 transition-all">
+              <Shield className="w-5 h-5 text-cyber-glow" />
+            </div>
+            <span className="font-extrabold text-lg tracking-wider text-white uppercase">
+              NewsGuard <span className="bg-gradient-to-r from-cyber-cyan via-blue-400 to-cyber-purple bg-clip-text text-transparent">AI</span>
             </span>
           </div>
           <div className="flex items-center gap-3">
-            <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Engine status:</span>
-            <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-black uppercase border ${
+            <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider hidden sm:inline">Engine status:</span>
+            <div className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-black uppercase border backdrop-blur-sm shadow-sm ${
               apiMode.includes('Online') 
-                ? 'bg-cyber-emerald/10 border-cyber-emerald/30 text-cyber-emerald' 
-                : 'bg-cyber-purple/10 border-cyber-purple/30 text-cyber-purple'
+                ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400 shadow-emerald-500/10' 
+                : 'bg-purple-500/10 border-purple-500/30 text-purple-300 shadow-purple-500/10'
             }`}>
               <Sparkles className="w-3 h-3" />
               {apiMode}
@@ -243,7 +245,7 @@ export default function App() {
           <div className="w-full">
             {apiError && (
               <div className="max-w-6xl mx-auto px-4 mb-4 print:hidden">
-                <div className="border border-cyber-purple/20 bg-cyber-purple/5 rounded-xl p-3 flex items-center gap-2 text-xs text-cyber-purple font-medium">
+                <div className="border border-purple-500/30 bg-purple-950/30 rounded-xl p-3 flex items-center gap-2 text-xs text-purple-300 font-medium">
                   <AlertCircle className="w-4 h-4 flex-shrink-0" />
                   {apiError}
                 </div>
@@ -255,15 +257,15 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-slate-200 py-6 bg-white print:hidden">
+      <footer className="border-t border-cyber-border py-6 bg-slate-950/70 print:hidden">
         <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
           <div>
-            &copy; 2026 NewsGuard AI - Advanced Misinformation Claim Audit
+            &copy; 2026 NewsGuard AI - Intelligent Misinformation & Claim Verification
           </div>
-          <div className="flex gap-4 font-semibold">
-            <span className="hover:text-slate-800 cursor-pointer">Security Portal</span>
-            <span className="hover:text-slate-800 cursor-pointer">API Integration</span>
-            <span className="hover:text-slate-800 cursor-pointer">Consensus Database</span>
+          <div className="flex gap-4 font-medium">
+            <span className="hover:text-slate-300 cursor-pointer transition-colors">Security Portal</span>
+            <span className="hover:text-slate-300 cursor-pointer transition-colors">API Integration</span>
+            <span className="hover:text-slate-300 cursor-pointer transition-colors">Consensus Database</span>
           </div>
         </div>
       </footer>

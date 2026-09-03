@@ -28,16 +28,16 @@ export default function AnalysisProgress({ onComplete }) {
   }, [currentStep, onComplete, steps.length]);
 
   return (
-    <div className="max-w-xl mx-auto px-6 py-12 bg-white border border-slate-200 rounded-3xl shadow-lg relative overflow-hidden">
+    <div className="max-w-xl mx-auto px-6 py-12 bg-slate-900/90 border border-slate-800 rounded-3xl shadow-2xl relative overflow-hidden backdrop-blur-md w-full">
       {/* Decorative scanner line */}
-      <div className="absolute left-0 right-0 h-[2px] bg-cyber-glow/20 scanner-line"></div>
+      <div className="absolute left-0 right-0 h-[2px] bg-cyan-400/40 scanner-line shadow-sm shadow-cyan-400"></div>
       
       <div className="text-center mb-8">
-        <Loader2 className="w-12 h-12 text-cyber-glow animate-spin mx-auto mb-4" />
-        <h3 className="text-xl font-extrabold tracking-wider uppercase text-slate-800">
+        <Loader2 className="w-12 h-12 text-cyan-400 animate-spin mx-auto mb-4" />
+        <h3 className="text-xl font-extrabold tracking-wider uppercase text-white">
           NewsGuard Deep Investigation
         </h3>
-        <p className="text-sm text-slate-600 mt-1">Cross-referencing claims against local and global registries</p>
+        <p className="text-sm text-slate-400 mt-1">Cross-referencing claims against local and global registries</p>
       </div>
 
       <div className="space-y-4">
@@ -50,26 +50,26 @@ export default function AnalysisProgress({ onComplete }) {
               key={idx}
               className={`flex items-start gap-4 p-3.5 rounded-xl border transition-all duration-300 ${
                 isCurrent 
-                  ? 'border-cyber-glow bg-cyber-glow/5 shadow-sm' 
+                  ? 'border-cyan-500/50 bg-cyan-500/10 shadow-lg shadow-cyan-500/10' 
                   : isCompleted 
-                    ? 'border-slate-100 bg-slate-50' 
-                    : 'border-transparent opacity-40'
+                    ? 'border-slate-800/80 bg-slate-950/60' 
+                    : 'border-transparent opacity-30'
               }`}
             >
               {isCompleted ? (
-                <CheckCircle2 className="w-5 h-5 text-cyber-emerald flex-shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
               ) : isCurrent ? (
-                <Loader2 className="w-5 h-5 text-cyber-glow animate-spin flex-shrink-0 mt-0.5" />
+                <Loader2 className="w-5 h-5 text-cyan-400 animate-spin flex-shrink-0 mt-0.5" />
               ) : (
-                <Circle className="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5" />
+                <Circle className="w-5 h-5 text-slate-600 flex-shrink-0 mt-0.5" />
               )}
               
               <div>
-                <h4 className={`text-sm font-bold ${isCurrent ? 'text-cyber-glow' : isCompleted ? 'text-slate-800' : 'text-slate-400'}`}>
+                <h4 className={`text-sm font-bold ${isCurrent ? 'text-cyan-400' : isCompleted ? 'text-slate-200' : 'text-slate-500'}`}>
                   {step.title}
                 </h4>
                 {isCurrent && (
-                  <p className="text-xs text-slate-600 mt-1 animate-pulse leading-relaxed">
+                  <p className="text-xs text-slate-300 mt-1 animate-pulse leading-relaxed">
                     {step.desc}
                   </p>
                 )}
@@ -81,13 +81,13 @@ export default function AnalysisProgress({ onComplete }) {
 
       {/* Progress percentage */}
       <div className="mt-8">
-        <div className="flex justify-between text-xs font-bold text-slate-500 mb-2 uppercase">
+        <div className="flex justify-between text-xs font-bold text-slate-400 mb-2 uppercase">
           <span>Analyzing Engine Status</span>
-          <span>{Math.min(100, Math.round((currentStep / steps.length) * 100))}%</span>
+          <span className="text-cyan-400">{Math.min(100, Math.round((currentStep / steps.length) * 100))}%</span>
         </div>
-        <div className="w-full bg-slate-100 rounded-full h-1.5 overflow-hidden">
+        <div className="w-full bg-slate-950 rounded-full h-1.5 overflow-hidden border border-slate-800">
           <div
-            className="bg-gradient-to-r from-cyber-glow to-cyber-purple h-full transition-all duration-300"
+            className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 h-full transition-all duration-300 shadow-sm shadow-cyan-400/50"
             style={{ width: `${(currentStep / steps.length) * 100}%` }}
           ></div>
         </div>
